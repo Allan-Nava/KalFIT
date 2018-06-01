@@ -153,3 +153,6 @@ GROUPS_MANAGER = {
     'AUTH_MODELS_SYNC': True,
 }
 
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
