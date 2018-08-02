@@ -24,7 +24,7 @@ BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY      = 'n!mewg=m*md&2!)6u=dj^klqjpit56(^f55$@gq@1a1(-@n++*'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG           = False
+DEBUG           = True
 ALLOWED_HOSTS   = ['*']
 
 
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'KalFIT.wsgi.application'
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = config('DEBUG', default=False, cast=bool)
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -117,9 +117,9 @@ LOCALE_PATHS = (PROJECT_DIR.child('locale'), )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = PROJECT_DIR.parent.child('staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT 		= PROJECT_DIR.parent.child('staticfiles')
+STATIC_URL		= '/static/'
+STATICFILES_STORAGE 	= 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     PROJECT_DIR.child('static'),
 )
