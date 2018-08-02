@@ -2,11 +2,11 @@
 #
 #   Autore          :   Allan Nava
 #   Data            :   29/05/2018
-#   Aggiornamento   :   29/05/2018
+#   Aggiornamento   :   02/08/2018
 #
 #
 #################################################################################
-from __future__ import unicode_literals
+from __future__                 import unicode_literals
 #
 import hashlib, os.path, urllib
 #
