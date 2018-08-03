@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'authentication',
     'alimentation',
     'KalFIT',
+    'frontend',
     'django_extensions',
     'ws4redis',
+
 ]
 
 MIDDLEWARE = [
