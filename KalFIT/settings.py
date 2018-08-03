@@ -9,16 +9,16 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
+#
 import os, dj_database_url
 from decouple   import Csv, config
 from unipath    import Path
-
+#
 PROJECT_DIR = Path(__file__).parent
-
+#
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -26,10 +26,9 @@ BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG           = True
 ALLOWED_HOSTS   = ['*']
-
-
+#
+#
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication',
     'alimentation',
+    'KalFIT',
+    'django_extensions',
+    'ws4redis',
 ]
 
 MIDDLEWARE = [
@@ -51,9 +53,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
+#
+#
 ROOT_URLCONF = 'KalFIT.urls'
-
+#
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -65,22 +68,42 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+                'ws4redis.context_processors.default', 
+           ],
         },
     },
 ]
-
-WSGI_APPLICATION = 'KalFIT.wsgi.application'
-
-
+#
+#WSGI_APPLICATION = 'KalFIT.wsgi.application'
+##########################################
+#
+#   DJANGO WEBSOCKET REDIS
+#
+##########################################
+#
+WEBSOCKET_URL               = '/ws/'
+WS4REDIS_EXPIRE             = 7200
+WS4REDIS_PREFIX             = 'ws'
+WSGI_APPLICATION            = 'ws4redis.django_runserver.application'
+#WS4REDIS_HEARTBEAT          = '--heartbeat--'
+#
+# CELERY SETTINGS
+BROKER_URL                  = 'redis://localhost:6379'
+CELERY_BROKER_URL           = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND       = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT       = ['application/json']
+CELERY_TASK_SERIALIZER      = 'json'
+CELERY_RESULT_SERIALIZER    = 'json'
+#
+#
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+#
 SECRET_KEY = config('SECRET_KEY')
-
+#
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG', default=False, cast=bool)
-
+#
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
@@ -93,10 +116,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-
+#
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
-
+#
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -123,13 +146,13 @@ STATICFILES_STORAGE 	= 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     PROJECT_DIR.child('static'),
 )
-
+#
 MEDIA_ROOT = PROJECT_DIR.parent.child('media')
 MEDIA_URL = '/media/'
-
+#
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
+#
 LANGUAGE_CODE   = 'en-us'
 #
 TIME_ZONE       = 'UTC'
@@ -143,16 +166,16 @@ ALLOWED_SIGNUP_DOMAINS = ['*']
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0o644
-
+#
 TAGGIT_CASE_INSENSITIVE = True
-
+#
 '''
     VARIABLE FOR GROUPS MANAGER LIBRARY
 '''
 GROUPS_MANAGER = {
     'AUTH_MODELS_SYNC': True,
 }
-
+#
 # Configure Django App for Heroku.
 #import django_heroku
 #django_heroku.settings(locals())

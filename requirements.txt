@@ -8,7 +8,6 @@ django-autoslug==1.9.3
 django-bootstrap3==9.1.0
 django-braces==1.12.0
 django-filter==1.1.0
-django-groups-manager==0.6.0
 django-guardian==1.4.9
 django-jet==1.0.6
 django-js-asset==0.1.1
@@ -32,3 +31,8 @@ Unipath==1.1
 webencodings==0.5.1
 whitenoise==3.3.1
 django-heroku>=0.3.0
+django-extensions==2.0.0
+coreapi==2.3.1
+django-websocket-redis==0.5.1
+tornado==4.2.1
+django-websocket-redis==0.5.1
