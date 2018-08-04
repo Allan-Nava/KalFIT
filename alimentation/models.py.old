@@ -22,7 +22,7 @@ from django.core.validators                     import RegexValidator
 #
 #
 @python_2_unicode_compatible
-class BaseAlimentation(models.Model):
+class BaseObject(models.Model):
 	"""
 	"""
 	#

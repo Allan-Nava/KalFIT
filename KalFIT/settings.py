@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'frontend',
     'django_extensions',
     'ws4redis',
-
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -145,15 +145,15 @@ LOCALE_PATHS = (PROJECT_DIR.child('locale'), )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT 		= PROJECT_DIR.parent.child('staticfiles')
-STATIC_URL		= '/static/'
+STATIC_ROOT 		    = PROJECT_DIR.parent.child('staticfiles')
+STATIC_URL		        = '/static/'
 STATICFILES_STORAGE 	= 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_DIRS = (
+STATICFILES_DIRS        = (
     PROJECT_DIR.child('static'),
 )
 #
-MEDIA_ROOT = PROJECT_DIR.parent.child('media')
-MEDIA_URL = '/media/'
+MEDIA_ROOT  = PROJECT_DIR.parent.child('media')
+MEDIA_URL   = '/media/'
 #
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -174,12 +174,6 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 #
 TAGGIT_CASE_INSENSITIVE = True
 #
-'''
-    VARIABLE FOR GROUPS MANAGER LIBRARY
-'''
-GROUPS_MANAGER = {
-    'AUTH_MODELS_SYNC': True,
-}
 #
 # Configure Django App for Heroku.
 #import django_heroku

@@ -1,4 +1,4 @@
-from django.http                            import (HttpResponse, HttpResponseBadRequest, HttpResponseForbidden, JsonResponse, HttpResponseRedirect)
+# -*- coding: utf-8 -*-
 ################################################################################
 #
 #   Autore          :   Allan Nava
