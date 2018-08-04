@@ -19,11 +19,21 @@ from django.conf                		    import settings
 from django.conf.urls                       import url,include
 from django.conf.urls.static                import static
 from django.contrib                         import admin
+from rest_framework                         import routers, renderers
+from api.views                              import *
 #
 admin.autodiscover()
 #
+router          = routers.DefaultRouter()
+# - ACTIVITIES -
+router.register(r'users', UserViewSet)
+router.register(r'alimentations', AlimentationViewSet)
+#
+#
+#
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'api/', include(router.urls)),
     url(r'^', include('frontend.urls')),
     #url(r'^', include('alimentation.urls')),
 ]
