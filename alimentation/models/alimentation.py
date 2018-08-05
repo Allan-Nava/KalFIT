@@ -64,18 +64,20 @@ class Alimentation(BaseObject):
       - `unsatured_fat`: (required)
       - `sodium`: (required)
       - `satured`: (required)
+      - `carbohydrates`: (required)
 	"""
     #
     no_image        = settings.MEDIA_URL +'alimentation/img.jpg'
     #
     description     = models.CharField(max_length=255, blank=True, null=True)
-    recipe          = models.CharField(max_length=255)
+    recipe          = models.TextField()
     image           = models.ImageField(upload_to=upload_image, storage=OverwriteStorage(), default=no_image, null=True, blank=True)
-    kcal            = models.IntegerField(default=0)
-    protein         = models.IntegerField(default=0)
-    satured_fat     = models.IntegerField(default=0)
-    unsatured_fat   = models.IntegerField(default=0)
-    sodium          = models.IntegerField(default=0)
+    kcal            = models.FloatField(default=0)
+    protein         = models.FloatField(default=0)
+    satured_fat     = models.FloatField(default=0)
+    unsatured_fat   = models.FloatField(default=0)
+    sodium          = models.FloatField(default=0)
+    carbohydrates   = models.FloatField(default=0)
     #
     class Meta:
         #

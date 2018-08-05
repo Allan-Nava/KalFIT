@@ -26,6 +26,7 @@ BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG           = True
 ALLOWED_HOSTS   = ['*']
+SITE_ID         = 1
 #
 #
 # Application definition
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'ws4redis',
     'rest_framework',
 ]
-
+#
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
