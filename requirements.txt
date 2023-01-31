@@ -2,7 +2,7 @@ awesome-slugify==1.6.5
 #bleach==2.1.2
 bleach>=3.1.4
 coverage==4.4.2
-dj-database-url==0.4.2
+dj-database-url==0.5.0
 dj-static==0.0.6
 Django>=2.2.13
 #==2.2
