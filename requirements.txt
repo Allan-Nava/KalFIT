@@ -34,7 +34,7 @@ Unipath==1.1
 webencodings==0.5.1
 whitenoise==3.3.1
 django-heroku>=0.3.0
-django-extensions==2.0.0
+django-extensions==2.2.9
 coreapi==2.3.1
 django-websocket-redis==0.5.1
 tornado==4.2.1
