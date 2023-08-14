@@ -37,6 +37,6 @@ django-heroku>=0.3.0
 django-extensions==2.0.0
 coreapi==2.3.1
 django-websocket-redis==0.5.1
-tornado==4.2.1
+tornado==6.3.3
 django-websocket-redis==0.5.1
 django-static-sitemaps==4.6.0
